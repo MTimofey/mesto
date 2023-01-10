@@ -1,0 +1,21 @@
+.root {
+  max-width: 880px;
+  min-width: 282px;
+  margin: 45px 200px 60px;
+  font-family: 'Inter', sans-serif;
+  background: #000000;
+  color: #FFFFFF;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility; 
+}
+@media screen and (max-width:1279px) {
+  .root {
+    max-width: 1241px;
+    width: calc(100% - 2 * 19px);
+    margin: 28px 19px 36px;
+  }
+}
