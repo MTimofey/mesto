@@ -6,6 +6,7 @@
 .element__like:hover {
   opacity: 0.5;
 }
-.element__like:active {
+.element__like:hover:active {
+  opacity: 1;
   background-image: url(../../../images/blacklike.png);
 }
