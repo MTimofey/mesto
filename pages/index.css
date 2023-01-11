@@ -1,6 +1,9 @@
 /* block file normalize */
 @import url(../vendor/normalize.css);
 
+/* block fonts files */
+@import url(../fonts/fonts.css);
+
 /* block root */
 @import url(../blocks/root/root.css);
 

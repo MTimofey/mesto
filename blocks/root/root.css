@@ -1,8 +1,8 @@
 .root {
   max-width: 880px;
   min-width: 282px;
-  margin: 45px 200px 60px;
-  font-family: 'Inter', sans-serif;
+  margin: 45px auto 60px;
+  font-family: 'Inter', Arial, sans-serif;
   background: #000000;
   color: #FFFFFF;
   -moz-osx-font-smoothing: grayscale;
@@ -16,6 +16,6 @@
   .root {
     max-width: 1241px;
     width: calc(100% - 2 * 19px);
-    margin: 28px 19px 36px;
+    margin: 28px auto 36px;
   }
 }
