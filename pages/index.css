@@ -2,7 +2,7 @@
 @import url(../vendor/normalize.css);
 
 /* block fonts files */
-@import url(../fonts/fonts.css);
+@import url(../vendor/fonts.css);
 
 /* block root */
 @import url(../blocks/root/root.css);
