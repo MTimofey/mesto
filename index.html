@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,7 +14,7 @@
 <body class="root">
   <header class="header">
     <a class="header__logo" href="#">
-      <img src="./images/headerLogo.png" alt="Логотип с изображением сайта">
+      <img class="header__logo-image" src="./images/headerLogo.png" alt="Логотип с изображением сайта">
     </a>
   </header>
   <main class="content">
@@ -23,70 +23,66 @@
         <img class="profile__avatar" src="./images/Zhak-Iv-Kusto.png" alt="Аватар">
         <div class="profile__info">
           <h1 class="profile__title">Жак-Ив Кусто</h1>
-          <a href="#popup" class="profile__edit-button"></a>
+          <button type="button" class="profile__edit-button"></button>
           <p class="profile__position">Исследователь океана</p>
         </div>
       </div>
-      <a href="" class="profile__add-button"></a>
+      <button type="button" class="profile__add-button"></button>
     </section>
     <section class="elements">
-     <div class="element">
-      <img class="element__image" src="./images/kirillpershin.png" alt="Каменный старый дом в Карачаево-Черкесия">
-      <div class="element__text">
-        <p class="element__title">Карачаевск</p>
-        <a class="element__like"><img src="./images/like.png" alt="Кнопка like"></a>
-      </div>
-     </div>
-     <div class="element">
-      <img class="element__image" src="./images/elbrus.png" alt="Закат на фоне горы Эльбрус">
-      <div class="element__text">
-        <p class="element__title">Гора Эльбрус</p> 
-        <a class="element__like"><img src="./images/like.png" alt="Лайк"></a>
-      </div>
-     </div>
-     <div class="element">
-      <img class="element__image" src="./images/dombai.png" alt="Горный массив Домбай">
-      <div class="element__text">
-        <p class="element__title">Домбай</p> 
-        <a class="element__like"><img src="./images/like.png" alt="Кнопка like"></a>
-      </div>
-     </div>
-     <div class="element">
-      <img class="element__image" src="./images/elbrus.png" alt="Закат на фоне горы Эльбрус">
-      <div class="element__text">
-        <p class="element__title">Гора Эльбрус</p> 
-        <a class="element__like"><img src="./images/like.png" alt="Кнопка like"></a>
-      </div>
-     </div>
-     <div class="element">
-      <img class="element__image" src="./images/dombai.png" alt="Горный массив Домбай">
-      <div class="element__text">
-        <p class="element__title">Домбай</p> 
-        <a class="element__like"><img src="./images/like.png" alt="Кнопка like"></a>
-      </div>
-     </div>
-     <div class="element">
-      <img class="element__image" src="./images/kirillpershin.png" alt="Каменный старый дом в Карачаево-Черкесия">
-      <div class="element__text">
-        <p class="element__title">Карачаево-Черкесия</p>
-        <a class="element__like"><img src="./images/like.png" alt="Кнопка like"></a>
-      </div>
-     </div>
     </section>
   </main> 
   <footer class="footer">
     <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
   </footer>
-  <div id="popup" class="popup__username-edit">
-    <a href="#content" class="popup__area"></a>
+
+  <!-- Попап редактирования профиля -->
+  <div class="popup popup__username-edit">
     <div class="popup__body">
-      <div class="popup__content">
-        <a class="popup__close" href="#content"><img class="popup__close-image" src="./images/сloseIcon.png" alt="Крестик"></a>
-        <div class="popup__title">Редактировать профиль</div>
-        <div class="popup__text">Жак-Ив Кусто</div>
-        <div class="popup__text">Исследователь океана</div>
-        <a href="#content" class="popup__submit">Сохранить</a>
-      </div>
+      <button class="popup__close-button" type="reset"></button>
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <form class="popup__content popup__form_username-edit" name="popupContent">
+        <input class="popup__text popup__text_username" type="text" name="userName" placeholder="Введите ваше имя">
+        <input class="popup__text popup__text_user-position" type="text" name="userPosition" placeholder="Расскажите о себе">
+        <button class="popup__submit-button" type="submit">Сохранить</button>
+      </form>
     </div>
   </div>
+
+  <!-- Попап добавление новой картинки -->
+  <div class="popup popup__card-add">
+    <div class="popup__body">
+      <button class="popup__close-button" type="reset"></button>
+      <h2 class="popup__title">Новое место</h2>
+      <form class="popup__content popup__form_card-add" name="popupContent">
+        <input class="popup__text popup__text_photo-name" type="text" name="photoName" placeholder="Название">
+        <input class="popup__text popup__text_photo-link" type="url" name="link" placeholder="Ссылка на картинку">
+      </form>
+      <button class="popup__submit-button popup__creat-button" type="submit">Создать</button>
+    </div>
+  </div>
+
+  <!-- Увеличение фото -->
+  <div class="popup popup__full-img">
+    <div class="popup__container">
+      <button class="popup__close-button" type="reset"></button>
+      <img class="popup__img" src="" alt="">
+      <p class="popup__description"></p>
+    </div>
+  </div>
+  
+  <!-- Новая картинка -->
+  <template id="template-elements">
+    <div class="element">
+      <button class="element__delete-button" type="reset"></button>
+      <img class="element__image" src="" alt="Фото">
+      <div class="element__text"> 
+        <p class="element__title">Название картинки</p> 
+        <button class="element__like-button" type="submit"></button> 
+      </div> 
+    </div> 
+  </template>
+
+  <script src="./script/script.js"></script>
+</body>
 </html>
