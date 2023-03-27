@@ -5,6 +5,7 @@
   background-image: url(../../../images/closeIcon.svg);
   background-color: transparent;
   box-shadow: 4px 0 5px rgba(0, 0, 0, 1);
+  cursor: pointer;
   border: 0;
   padding: 0;
   right: -40px;
