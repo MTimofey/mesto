@@ -1,4 +1,4 @@
-//константы
+// константы
 const popups = document.querySelectorAll('.popup');
 
 const popupUsernameEdit = document.querySelector('.popup__username-edit');
