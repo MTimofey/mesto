@@ -125,7 +125,7 @@ buttonCreatCard.addEventListener("click", (evt) => {
 });
 
 // функция создания карточки
-const createNewCard = (data) => {
+function createNewCard (data) {
   const newCard = elementsTemplate.cloneNode(true);
   newCard.querySelector('.element__title').textContent = data.name;
   newCard.querySelector('.element__image').src = data.link;
@@ -146,7 +146,7 @@ const handleOpenCard = (evt) => {
 };
 
 // функция закрытия картинки
-popupFullPictute.querySelector('.popup__close-button').addEventListener('click', function() {
+popupFullPictute.querySelector('.popup__close-button').addEventListener('click', function(){
 	closePopup();
 });
 
