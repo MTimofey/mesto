@@ -1,12 +1,12 @@
 // константы
 const popups = document.querySelectorAll('.popup');
 
-const popupUsernameEdit = document.querySelector('.popup__username-edit');
-const popupCardAdd = document.querySelector('.popup__card-add');
+const popupUsernameEdit = document.querySelector('.popup_username-edit');
+const popupCardAdd = document.querySelector('.popup_card-add');
 const elements = document.querySelector('.elements');
 const elementsTemplate = document.querySelector('#template-elements').content.querySelector('.element');
 const popupContent = document.querySelector('.popup__content');
-const popupFormCardAdd = document.querySelector('popup__form_card-add');
+const popupContentCardAdd = document.querySelector('.popup__content_card-add');
 
 const buttonEditProfile = document.querySelector('.profile__edit-button');
 const buttonCardsAdd = document.querySelector('.profile__add-button');
@@ -19,7 +19,7 @@ const inputUserPosition = document.querySelector('.popup__text_user-position');
 const inputPhotoName = document.querySelector('.popup__text_photo-name');
 const inputPhotoLink = document.querySelector('.popup__text_photo-link');
 
-const popupFullPictute = document.querySelector('.popup__full-img');
+const popupFullPictute = document.querySelector('.popup_full-img');
 const popupImage = popupFullPictute.querySelector('.popup__img');
 const popupDescription = popupFullPictute.querySelector('.popup__description');
 
@@ -137,7 +137,7 @@ const createNewCard = (data) => {
 };
 
 // функция открытия карточки
-function handleOpenCard (evt){
+const handleOpenCard = (evt) => {
 	const newCard = evt.target.closest('.element');
 	popupImage.src = evt.target.src;
 	popupDescription.textContent = newCard.querySelector('.element__title').textContent;
@@ -146,7 +146,7 @@ function handleOpenCard (evt){
 };
 
 // функция закрытия картинки
-popupFullPictute.querySelector('.popup__close-button').addEventListener('click', function(){
+popupFullPictute.querySelector('.popup__close-button').addEventListener('click', function() {
 	closePopup();
 });
 
