@@ -39,10 +39,10 @@
   <!-- Попап редактирования профиля -->
   <div class="popup popup_username-edit">
     <div class="popup__body">
-      <button class="popup__close-button" type="reset"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
       <form class="popup__content popup__content_username-edit" name="popupContent">
-        <input class="popup__text popup__text_username" type="text" name="userName" placeholder="Введите ваше имя">
+        <button class="popup__close-button" type="reset"></button>
+        <input class="popup__text popup__text_username" type="text" name="userName" placeholder="Введите ваше имя" required>
         <input class="popup__text popup__text_user-position" type="text" name="userPosition" placeholder="Расскажите о себе">
         <button class="popup__submit-button" type="submit">Сохранить</button>
       </form>
@@ -52,13 +52,13 @@
   <!-- Попап добавление новой картинки -->
   <div class="popup popup_card-add">
     <div class="popup__body">
-      <button class="popup__close-button" type="reset"></button>
       <h2 class="popup__title">Новое место</h2>
       <form class="popup__content popup__content_card-add" name="popupContent">
+        <button class="popup__close-button" type="reset"></button>
         <input class="popup__text popup__text_photo-name" type="text" name="photoName" placeholder="Название">
-        <input class="popup__text popup__text_photo-link" type="url" name="link" placeholder="Ссылка на картинку">
+        <input class="popup__text popup__text_photo-link" type="url" name="link" placeholder="Ссылка на картинку" required>
+        <button class="popup__submit-button" type="submit">Создать</button>
       </form>
-      <button class="popup__submit-button popup__creat-button" type="submit">Создать</button>
     </div>
   </div>
 
@@ -82,7 +82,7 @@
       </div> 
     </div> 
   </template>
-
-  <script src="./script/script.js"></script>
+  <script src="./script/cards.js" defer></script>
+  <script src="./script/script.js" defer></script>
 </body>
 </html>

@@ -1,6 +1,7 @@
 .profile__info {
+  max-width: 336px;
   display: grid;
-  gap: 16px 18px;
+  gap: 16px 17px;
   grid-template-areas: 
   "name edit"
   "position position";
