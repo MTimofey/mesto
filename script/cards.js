@@ -25,7 +25,7 @@ const initialCards = [
   },
   {
     name: 'Тетрагидроканнабинол',
-    link: 'https://ltdfoto.ru/images/2023/04/04/p8226.jpg'
+    link: 'https://images.unsplash.com/photo-1680738498389-55af103d8eab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80'
   }, 
   {
     name: 'Джонни Депп',
@@ -33,18 +33,18 @@ const initialCards = [
   },
   {
     name: 'Джон Колтрейн',
-    link: 'https://ltdfoto.ru/images/2023/04/04/JohnColtrane2.jpg'
+    link: 'https://unsplash.com/photos/qXjINparwW0'
   },
   {
-    name: 'Космос',
-    link: 'https://ltdfoto.ru/images/2023/04/06/Yest-li-zvuk-v-kosmose.jpg'
+    name: 'Отдых на пляже',
+    link: 'https://unsplash.com/photos/spFn2ilD1aw'
   },
   {
-    name: 'Жираф',
-    link: 'https://unsplash.com/photos/lKvvqesmFVo'
+    name: 'Пейзаж',
+    link: 'https://unsplash.com/photos/TBW2aebtz0E'
   },
   {
-    name: 'Жираф',
-    link: 'https://unsplash.com/photos/lKvvqesmFVo'
+    name: 'Китайский фонарь',
+    link: 'https://unsplash.com/photos/JzPg38m570c'
   },
 ];
