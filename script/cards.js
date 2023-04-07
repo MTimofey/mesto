@@ -40,11 +40,11 @@ const initialCards = [
     link: 'https://ltdfoto.ru/images/2023/04/06/Yest-li-zvuk-v-kosmose.jpg'
   },
   {
-    name: 'Солнечная система',
-    link: 'https://ltdfoto.ru/images/2023/04/04/SOLNECNAY-SISTEMA9874025306fa47b0.jpg'
+    name: 'Жираф',
+    link: 'https://unsplash.com/photos/lKvvqesmFVo'
   },
   {
-    name: 'Капа',
+    name: 'Жираф',
     link: 'https://unsplash.com/photos/lKvvqesmFVo'
   },
 ];

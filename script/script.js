@@ -31,19 +31,9 @@ function openPopup(popup) {
   popup.classList.add('popup__opened'); 
 };
 
-// функция открытия попапа с более темным фоном
-function openPopupBackgroundDark(popup) {
-  popup.classList.add('popup__opened_dark'); 
-};
-
 // функция закрытия попапа
 function closePopup(popup) {
   popup.classList.remove('popup__opened');
-};
-
-// функция закрытия попапа с более темным фоном
-function closePopupBackgroundDark(popup) {
-  popup.classList.remove('popup__opened_dark'); 
 };
 
 // функция открытия карточки
@@ -51,7 +41,7 @@ const handleOpenCard = (name, link) => {
 	popupPhotoDescription.textContent = name;
   popupCurrentImage.src = link;
 
-  openPopupBackgroundDark(popupImageFullPicture);
+  popupImageFullPicture.classList.add('popup__opened_dark');
 };
 
 // функция удаления карточки
@@ -116,7 +106,7 @@ buttonClosePopupCardAdd.addEventListener('click', function() {
 
 // закрыть масштабированную картинку 
 buttonClosePopupImageFull.addEventListener('click', function() {
-	closePopupBackgroundDark(popupImageFullPicture);
+	popupImageFullPicture.classList.remove('popup__opened_dark');
 });
 
 // добавить данные в попап редоктирования профиля
