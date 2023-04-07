@@ -29,7 +29,7 @@ const initialCards = [
   }, 
   {
     name: 'Джонни Депп',
-    link: 'https://ltdfoto.ru/images/2023/04/04/regnum_picture_16511334329780490_normal.jpg'
+    link: 'https://ltdfoto.ru/images/2023/04/07/171455-zhivopis-illustracia-art-voda-oblako-500x.jpg'
   },
   {
     name: 'Джон Колтрейн',
