@@ -16,6 +16,6 @@
 Основная идея проекта: начучиться пользоваться JS.
 
 ### Ссылка на проект
-[Мой проект](https://mtimofey.github.io/mesto-project-bootcamp/)
+[Мой проект](https://mtimofey.github.io/mesto/)
 ### Ссылка на готовый проект Figma
 [Проект mesto](https://www.figma.com/file/bjyvbKKJN2naO0ucURl2Z0/JavaScript.-Sprint-5?node-id=0%3A1&t=0i8MGIqKam31IkBY-0)

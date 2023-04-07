@@ -44,7 +44,7 @@ const initialCards = [
     link: 'https://ltdfoto.ru/images/2023/04/04/SOLNECNAY-SISTEMA9874025306fa47b0.jpg'
   },
   {
-    name: 'Капибара',
-    link: 'https://ltdfoto.ru/images/2023/04/06/vodosvinka-ili-kapibara.jpg'
+    name: 'Капа',
+    link: 'https://unsplash.com/photos/lKvvqesmFVo'
   },
 ];

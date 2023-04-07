@@ -46,7 +46,7 @@ function closePopupBackgroundDark(popup) {
   popup.classList.remove('popup__opened_dark'); 
 };
 
-// функция открытия карточки 
+// функция открытия карточки
 const handleOpenCard = (name, link) => {
 	popupPhotoDescription.textContent = name;
   popupCurrentImage.src = link;
