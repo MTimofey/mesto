@@ -6,9 +6,6 @@ const popupCardAdd = document.querySelector('.popup_card-add');
 const elements = document.querySelector('.elements');
 const elementsTemplate = document.querySelector('#template-elements').content.querySelector('.element');
 
-const popupFormContentAddNewCard = document.querySelector('.popup__content_card-add');
-const popupFormContentUsernameProfile = document.querySelector('.popup__content_username-edit');
-
 const userName = document.querySelector('.profile__title');
 const userPosition = document.querySelector('.profile__position');
 const inputUserName = document.querySelector('.popup__text_username');
@@ -26,14 +23,40 @@ const buttonClosePopupEditProfile = popupUsernameEdit.querySelector('.popup__clo
 const buttonClosePopupCardAdd = popupCardAdd.querySelector('.popup__close-button');
 const buttonClosePopupImageFull = popupImageFullPicture.querySelector('.popup__close-button');
 
+
 // функция открытия попапа
 function openPopup(popup) {
   popup.classList.add('popup__opened'); 
+  popup.addEventListener('keydown', closePopupByEsc);
+  closePopupByOverlay(popup);
 };
 
 // функция закрытия попапа
 function closePopup(popup) {
   popup.classList.remove('popup__opened');
+};
+
+
+// функция закрытия попапа через Esc 
+function closePopupByEsc(evt) {
+  const popupVisible = document.querySelector('.popup__opened');
+  // const popupVisibleDark = document.querySelector('.popup__opened_dark');
+  // не совсем понимаю как добавить слушатель на попап с увеличением фото
+  // надо добавить отдельную функию открытия попапа ч более черным фоном
+  // и туда навесить слушатель, но тогда как указать в переменных это?
+
+  if (evt.key === 'Escape' && popupVisible) {
+    closePopup(popupVisible);
+  }
+};
+
+// функция закрытия попапа по клику вне папапа (Overlay)
+function closePopupByOverlay(popup) {
+  popup.addEventListener('click', (evt) => {
+    if (evt.currentTarget === evt.target) {
+      closePopup(popup);
+    }
+  });
 };
 
 // функция открытия карточки
@@ -80,6 +103,15 @@ const renderCard = (data) => {
 initialCards.forEach((data) => {
 	renderCard(data);
 });
+
+// // закрыть попап by Overlay
+// const closePopupByOverlay = (e) => {
+//   if (e.target !== e.currentTarget) return;
+//   closePopup(e.currentTarget);
+// };
+
+// popups.forEach((popup) => popup.addEventListener('click', closePopupByOverlay));
+
 
 // открыть попап редактирования профиля (кнопка "карандаш") 
 buttonEditProfile.addEventListener('click', function() {

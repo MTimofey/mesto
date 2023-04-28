@@ -2,7 +2,7 @@
   display: flex;
   justify-content: flex-start;
   width: 100%;
-  margin: 0 auto 30px;
+  margin: 0 auto 5px;
   padding-bottom: 12px;
   font-weight: 400;
   font-size: 14px;
@@ -10,12 +10,4 @@
   outline: none;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, .2);
-}
-.popup__text:last-of-type {
-  margin: 0 auto 48px;
-}
-@media screen and (max-width: 1279px) {
-  .popup__text:last-of-type {
-    margin: 0 auto 45px;
-  }
 }

@@ -22,9 +22,9 @@
       <div class="profile__cover">
         <img class="profile__avatar" src="./images/Zhak-Iv-Kusto.png" alt="Аватар">
         <div class="profile__info">
-          <h1 class="profile__title">Жак-Ив Кусто</h1>
+          <h1 class="profile__title"></h1>
           <button type="button" class="profile__edit-button"></button>
-          <p class="profile__position">Исследователь океана</p>
+          <p class="profile__position"></p>
         </div>
       </div>
       <button type="button" class="profile__add-button"></button>
@@ -40,10 +40,12 @@
   <div class="popup popup_username-edit">
     <div class="popup__body">
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form class="popup__content popup__content_username-edit" name="popupContent">
+      <form class="popup__content popup__content_username-edit" name="ContentProfileForm" novalidate>
         <button class="popup__close-button" type="reset"></button>
-        <input class="popup__text popup__text_username" type="text" name="userName" placeholder="Введите ваше имя" required>
-        <input class="popup__text popup__text_user-position" type="text" name="userPosition" placeholder="Расскажите о себе">
+        <input id="popup__username" type="text"  name="userName" class="popup__text popup__text_username" minlength="2" maxlength="40" autocomplete="off" placeholder="Введите ваше имя" required>
+        <span id="error-popup__username" class="popup__error-message popup__error-message_hidden"></span>
+        <input id="popup__user-position" type="text"  name="userPosition" class="popup__text popup__text_user-position" minlength="2" maxlength="200" autocomplete="off" placeholder="Расскажите о себе" required>
+        <span id="error-popup__user-position" class="popup__error-message popup__error-message_hidden"></span>
         <button class="popup__submit-button" type="submit">Сохранить</button>
       </form>
     </div>
@@ -53,10 +55,12 @@
   <div class="popup popup_card-add">
     <div class="popup__body">
       <h2 class="popup__title">Новое место</h2>
-      <form class="popup__content popup__content_card-add" name="popupContent">
+      <form class="popup__content popup__content_card-add" name="ContentNewCardForm" novalidate>
         <button class="popup__close-button" type="reset"></button>
-        <input class="popup__text popup__text_photo-name" type="text" name="photoName" placeholder="Название">
-        <input class="popup__text popup__text_photo-link" type="url" name="link" placeholder="Ссылка на картинку" required>
+        <input id="popup__photo-name" type="text"  name="photoName" class="popup__text popup__text_photo-name" minlength="2" maxlength="30" autocomplete="off" placeholder="Название" required>
+        <span id="error-popup__photo-name" class="popup__error-message popup__error-message_hidden"></span>
+        <input id="popup__photo-link" type="url"  name="link" class="popup__text popup__text_photo-link" autocomplete="off" placeholder="Ссылка на картинку" required>
+        <span id="error-popup__photo-link" class="popup__error-message popup__error-message_hidden"></span>
         <button class="popup__submit-button" type="submit">Создать</button>
       </form>
     </div>
@@ -84,5 +88,6 @@
   </template>
   <script src="./script/cards.js" defer></script>
   <script src="./script/script.js" defer></script>
+  <script src="./script/validate.js" defer></script>
 </body>
 </html>
