@@ -27,7 +27,7 @@ const buttonClosePopupImageFull = popupImageFullPicture.querySelector('.popup__c
 // функция открытия попапа
 function openPopup(popup) {
   popup.classList.add('popup__opened'); 
-  popup.addEventListener('keydown', closePopupByEsc);
+  document.addEventListener('keydown', closePopupByEsc);
   closePopupByOverlay(popup);
 };
 
@@ -36,14 +36,9 @@ function closePopup(popup) {
   popup.classList.remove('popup__opened');
 };
 
-
 // функция закрытия попапа через Esc 
 function closePopupByEsc(evt) {
   const popupVisible = document.querySelector('.popup__opened');
-  // const popupVisibleDark = document.querySelector('.popup__opened_dark');
-  // не совсем понимаю как добавить слушатель на попап с увеличением фото
-  // надо добавить отдельную функию открытия попапа ч более черным фоном
-  // и туда навесить слушатель, но тогда как указать в переменных это?
 
   if (evt.key === 'Escape' && popupVisible) {
     closePopup(popupVisible);
@@ -64,8 +59,8 @@ const handleOpenCard = (name, link) => {
 	popupPhotoDescription.textContent = name;
   popupCurrentImage.src = link;
 
-  popupImageFullPicture.classList.add('popup__opened_dark');
-};
+  openPopup(popupImageFullPicture);
+}
 
 // функция удаления карточки
 const handleDeleteCard = (newCard) => {
@@ -104,15 +99,6 @@ initialCards.forEach((data) => {
 	renderCard(data);
 });
 
-// // закрыть попап by Overlay
-// const closePopupByOverlay = (e) => {
-//   if (e.target !== e.currentTarget) return;
-//   closePopup(e.currentTarget);
-// };
-
-// popups.forEach((popup) => popup.addEventListener('click', closePopupByOverlay));
-
-
 // открыть попап редактирования профиля (кнопка "карандаш") 
 buttonEditProfile.addEventListener('click', function() {
   inputUserName.value = userName.textContent;
@@ -138,7 +124,7 @@ buttonClosePopupCardAdd.addEventListener('click', function() {
 
 // закрыть масштабированную картинку 
 buttonClosePopupImageFull.addEventListener('click', function() {
-	popupImageFullPicture.classList.remove('popup__opened_dark');
+	closePopup(popupImageFullPicture);
 });
 
 // добавить данные в попап редоктирования профиля
@@ -160,3 +146,4 @@ popupCardAdd.addEventListener('submit', (evt) => {
 
     closePopup(popupCardAdd);
 });
+
