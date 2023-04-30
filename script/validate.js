@@ -2,13 +2,13 @@
 function setValidateStatusOn({inputErrorClass}, input, errorElement) {
   input.classList.remove(inputErrorClass);
   errorElement.textContent = '';
-}
+};
 
 // функция если система НЕ прошла валидацию форм
 function setValidateStatusOff({inputErrorClass}, input, errorElement) {
   input.classList.add(inputErrorClass);
   errorElement.textContent = input.validationMessage;
-}
+};
 
 // функция проверки формы на валидность
 function checkInputValidity({inputErrorClass}, input) {
@@ -18,20 +18,20 @@ function checkInputValidity({inputErrorClass}, input) {
     setValidateStatusOn(inputErrorClass, input, errorElement);
   } else {
     setValidateStatusOff(inputErrorClass, input, errorElement);
-  }
-} 
+  };
+};
 
 // функция разблокировки кнопки отправки формы 
 function enableButton({inactiveButtonClass}, button) {
   button.removeAttribute('disabled');
   button.classList.remove(inactiveButtonClass);
-}
+};
 
 // функция блокировки кнопки отправки формы 
 function disableButton({inactiveButtonClass}, button) {
   button.setAttribute('disabled', '');
   button.classList.add(inactiveButtonClass);
-}
+};
 
 // функция проверки кнопки работы кнопки из функции проверки на валидность
 function toggleButtonValidity({submitButtonSelector, ...rest}, form) {
@@ -41,32 +41,29 @@ function toggleButtonValidity({submitButtonSelector, ...rest}, form) {
     enableButton(rest, submitButton);
   } else {
     disableButton(rest, submitButton);
-  }
-}
+  };
+};
 
 // функция для работы с формами и инпутами в форме
 function enableValidation({formSelector, inputSelector, ...rest}) {
-const popupForms = document.querySelectorAll(formSelector);
-const popupFormsArray = Array.from(popupForms);
+  const popupForm = document.querySelectorAll(formSelector);
+  const popupFormArray = Array.from(popupForm);
 
-popupFormsArray.forEach(function(forms) {
-  forms.addEventListener('submit', function(evt){
-    evt.preventDefault();
+  popupFormArray.forEach(function(form) {
+    form.addEventListener('submit', function(evt){
+    });
 
-    toggleButtonValidity(rest, forms)
-  });
+  // toggleButtonValidity(rest, form)
 
-  toggleButtonValidity(rest, forms)
-
-  const inputs = document.querySelectorAll(inputSelector);
+  const inputs = form.querySelectorAll(inputSelector);
   const inputsArray = Array.from(inputs);
 
   inputsArray.forEach(function(input) {
     input.addEventListener('input', () => {
       checkInputValidity(rest, input);
-      toggleButtonValidity(rest, forms);
+      toggleButtonValidity(rest, form);
     });
-  })
+  });
 });
 };
 

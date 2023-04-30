@@ -23,6 +23,10 @@ const buttonClosePopupEditProfile = popupUsernameEdit.querySelector('.popup__clo
 const buttonClosePopupCardAdd = popupCardAdd.querySelector('.popup__close-button');
 const buttonClosePopupImageFull = popupImageFullPicture.querySelector('.popup__close-button');
 
+const bottonSubmitEditProfile = popupUsernameEdit.querySelector('.popup__submit-button')
+const buttonSubmitAddCard  = popupCardAdd.querySelector('.popup__submit-button');
+
+
 
 // функция открытия попапа
 function openPopup(popup) {
@@ -101,6 +105,8 @@ initialCards.forEach((data) => {
 
 // открыть попап редактирования профиля (кнопка "карандаш") 
 buttonEditProfile.addEventListener('click', function() {
+  bottonSubmitEditProfile.setAttribute('disabled', '');
+  bottonSubmitEditProfile.classList.add('popup__submit-button_disable');
   inputUserName.value = userName.textContent;
   inputUserPosition.value = userPosition.textContent;
 
@@ -109,17 +115,23 @@ buttonEditProfile.addEventListener('click', function() {
 
 // открыть попап добавления новой карточки (кнопка "плюс")
 buttonCardAdd.addEventListener('click', function() {
+  buttonSubmitAddCard.setAttribute('disabled', '');
+  buttonSubmitAddCard.classList.add('popup__submit-button_disable');
   openPopup(popupCardAdd);
 });
 
 // закрыть попап редактирования профиля (кнопка "крестик")
 buttonClosePopupEditProfile.addEventListener('click', function() {
   closePopup(popupUsernameEdit);
+  bottonSubmitEditProfile.setAttribute('disabled', '');
+  bottonSubmitEditProfile.classList.add('popup__submit-button_disable');
 });
 
 // закрыть попап добавления новой карточки (кнопка "крестик")
 buttonClosePopupCardAdd.addEventListener('click', function() {
   closePopup(popupCardAdd);
+  buttonSubmitAddCard.setAttribute('disabled', '');
+  buttonSubmitAddCard.classList.add('popup__submit-button_disable');
 });
 
 // закрыть масштабированную картинку 
@@ -133,17 +145,19 @@ popupUsernameEdit.addEventListener('submit', (evt) => {
   userName.textContent = inputUserName.value;
   userPosition.textContent = inputUserPosition.value;
 
-  closePopup(popupUsernameEdit); 
+  closePopup(popupUsernameEdit);
 });
 
 // добавить карточки (кнопка "плюс")
 popupCardAdd.addEventListener('submit', (evt) => {
 	evt.preventDefault();
   const newCard = {name: inputPhotoName.value, link: inputPhotoLink.value}
-    renderCard(newCard);
-    inputPhotoName.value = '';
-    inputPhotoLink.value = '';
+  renderCard(newCard);
+  inputPhotoName.value = '';
+  inputPhotoLink.value = '';
 
-    closePopup(popupCardAdd);
+  closePopup(popupCardAdd);
+  buttonSubmitAddCard.setAttribute('disabled', '');
+  buttonSubmitAddCard.classList.add('popup__submit-button_disable');
 });
 
