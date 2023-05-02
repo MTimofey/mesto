@@ -1,13 +1,7 @@
 .popup__content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  background-color: #FFFFFF;
-  color: black;
   width: 358px;
-  min-height: 100%;
-  border-radius: 10px;
 }
 
 @media screen and (max-width: 1279px) {

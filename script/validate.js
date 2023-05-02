@@ -50,21 +50,17 @@ function enableValidation({formSelector, inputSelector, ...rest}) {
   const popupFormArray = Array.from(popupForm);
 
   popupFormArray.forEach(function(form) {
-    form.addEventListener('submit', function(evt){
-    });
 
-  // toggleButtonValidity(rest, form)
+    const inputs = form.querySelectorAll(inputSelector);
+    const inputsArray = Array.from(inputs);
 
-  const inputs = form.querySelectorAll(inputSelector);
-  const inputsArray = Array.from(inputs);
-
-  inputsArray.forEach(function(input) {
-    input.addEventListener('input', () => {
-      checkInputValidity(rest, input);
-      toggleButtonValidity(rest, form);
+    inputsArray.forEach(function(input) {
+      input.addEventListener('input', () => {
+        checkInputValidity(rest, input);
+        toggleButtonValidity(rest, form);
+      });
     });
   });
-});
 };
 
 // объект с включением валидаций всех форм
