@@ -1,17 +1,25 @@
+// импорты
+import { initialCards } from "./initialCards.js";
+import { Card } from "./card.js";
+import { FormValidator, classSelector } from "./formValidator.js";
+
 // константы
 const popups = document.querySelectorAll('.popup');
 
 const popupUsernameEdit = document.querySelector('.popup_username-edit');
 const popupCardAdd = document.querySelector('.popup_card-add');
 const elements = document.querySelector('.elements');
-const elementsTemplate = document.querySelector('#template-elements').content.querySelector('.element');
 
 const userName = document.querySelector('.profile__title');
 const userPosition = document.querySelector('.profile__position');
-const inputUserName = document.querySelector('.popup__text_username');
-const inputUserPosition = document.querySelector('.popup__text_user-position');
-const inputPhotoName = document.querySelector('.popup__text_photo-name');
-const inputPhotoLink = document.querySelector('.popup__text_photo-link');
+
+const formForPopupUsernameEdit = document.forms['contentProfileForm'];
+const inputUserName = formForPopupUsernameEdit.elements['userName'];
+const inputUserPosition = formForPopupUsernameEdit.elements['userPosition'];
+
+const formForPopupCardAdd = document.forms['contentNewCardForm']
+const inputPhotoName = formForPopupCardAdd.elements['photoName'];
+const inputPhotoLink = formForPopupCardAdd.elements['link'];
 
 const popupImageFullPicture = document.querySelector('.popup_full-img');
 const popupCurrentImage = popupImageFullPicture.querySelector('.popup__img');
@@ -25,6 +33,11 @@ const buttonClosePopupImageFull = popupImageFullPicture.querySelector('.popup__c
 
 const bottonSubmitEditProfile = popupUsernameEdit.querySelector('.popup__submit-button')
 const buttonSubmitAddCard  = popupCardAdd.querySelector('.popup__submit-button');
+
+const popupUsernameEditValidate = new FormValidator(classSelector, formForPopupUsernameEdit);
+popupUsernameEditValidate.enableValidation();
+const popupCardAddValidate = new FormValidator(classSelector, formForPopupCardAdd);
+popupCardAddValidate.enableValidation();
 
 
 
@@ -58,50 +71,24 @@ function closePopupByOverlay(popup) {
   });
 };
 
-// функция открытия карточки
-const handleOpenCard = (name, link) => {
-	popupPhotoDescription.textContent = name;
-  popupCurrentImage.src = link;
+// функция доабвления новой карточки в общий селектор
+function makeCard(cardItem) {
+  elements.prepend(cardItem);
+};
 
-  openPopup(popupImageFullPicture);
+// функция доставания карточки для создания
+function getCard(cardData) {
+  return new Card(cardData, '#template-elements');
+};
+
+// функия создания карточки 
+function createCard(cardData) {
+  const cardItem = getCard(cardData);
+  makeCard(cardItem.getCard());
 }
 
-// функция удаления карточки
-const handleDeleteCard = (newCard) => {
-  newCard.remove();
-};
-
-// функция лайка 
-const handleLikeCard = (buttonLikeCard) => {
-	buttonLikeCard.classList.toggle('element__like-button_active');
-};
-
-// функция создания карточки
-function createNewCard (data) {
-  const newCard = elementsTemplate.cloneNode(true);
-  const titleCard = newCard.querySelector('.element__title');
-  const imageCard = newCard.querySelector('.element__image');
-  const buttonDeleteCard = newCard.querySelector('.element__delete-button');
-  const buttonLikeCard = newCard.querySelector('.element__like-button');
-  titleCard.textContent = data.name;
-  imageCard.alt = data.name;
-  imageCard.src = data.link;
-  imageCard.addEventListener('click', () => handleOpenCard(data.name, data.link));
-  buttonDeleteCard.addEventListener('click', () =>  handleDeleteCard(newCard));
-  buttonLikeCard.addEventListener('click', () => handleLikeCard(buttonLikeCard));
-
-  return newCard;
-};
-
-// функция создания карточек
-const renderCard = (data) => {
-  elements.prepend(createNewCard(data));
-};
-
-// фукнция с готовым массивом
-initialCards.forEach((data) => {
-	renderCard(data);
-});
+// готовый массив
+initialCards.forEach(createCard);
 
 // открыть попап редактирования профиля (кнопка "карандаш") 
 buttonEditProfile.addEventListener('click', function() {
@@ -117,6 +104,7 @@ buttonEditProfile.addEventListener('click', function() {
 buttonCardAdd.addEventListener('click', function() {
   buttonSubmitAddCard.setAttribute('disabled', '');
   buttonSubmitAddCard.classList.add('popup__submit-button_disable');
+  
   openPopup(popupCardAdd);
 });
 
@@ -151,8 +139,8 @@ popupUsernameEdit.addEventListener('submit', (evt) => {
 // добавить карточки (кнопка "плюс")
 popupCardAdd.addEventListener('submit', (evt) => {
 	evt.preventDefault();
-  const newCard = {name: inputPhotoName.value, link: inputPhotoLink.value}
-  renderCard(newCard);
+  const newCard = {name: inputPhotoName.value, link: inputPhotoLink.value};
+  createCard(newCard);
   inputPhotoName.value = '';
   inputPhotoLink.value = '';
 
@@ -161,3 +149,5 @@ popupCardAdd.addEventListener('submit', (evt) => {
   buttonSubmitAddCard.classList.add('popup__submit-button_disable');
 });
 
+// экспорты  
+export { popupImageFullPicture, popupCurrentImage, popupPhotoDescription, openPopup }
