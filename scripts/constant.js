@@ -17,7 +17,7 @@ const formForPopupCardAdd = document.forms['contentNewCardForm']
 const inputPhotoName = formForPopupCardAdd.elements['photoName'];
 const inputPhotoLink = formForPopupCardAdd.elements['link'];
 
-const popupImageFullPicture = document.querySelector('.popup__full-img');
+const popupImageFullPicture = document.querySelector('.popup_full-img');
 const popupCurrentImage = popupImageFullPicture.querySelector('.popup__img');
 const popupPhotoDescription = popupImageFullPicture.querySelector('.popup__description');
 
