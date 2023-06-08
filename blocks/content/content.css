@@ -1,7 +1,8 @@
 .content {
+  position: relative;
   max-width: 880px;
   min-width: 282px;
-  height: 75hmin;
+  min-height: 75vh;
   margin: 0 auto 66px;
 }
 @media screen and (max-width:1279px) {
