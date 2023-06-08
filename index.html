@@ -22,9 +22,9 @@
       <div class="profile__cover">
         <img class="profile__avatar" src="./images/Zhak-Iv-Kusto.png" alt="Аватар">
         <div class="profile__info">
-          <h1 class="profile__title"></h1>
+          <h1 class="profile__title">Жак-Ив Кусто</h1>
           <button type="button" class="profile__edit-button"></button>
-          <p class="profile__position"></p>
+          <p class="profile__position">Исследователь океана</p>
         </div>
       </div>
       <button type="button" class="profile__add-button"></button>
@@ -60,7 +60,7 @@
           required>
         <span
           id="error-popup__username"
-          class="popup__error-message popup__error-message_hidden">
+          class="popup__error-message">
         </span>
         <input
           id="popup__user-position"
@@ -74,7 +74,7 @@
           required>
         <span
           id="error-popup__user-position"
-          class="popup__error-message popup__error-message_hidden">
+          class="popup__error-message">
         </span>
         <button
           type="submit"
@@ -107,7 +107,7 @@
           required>
         <span
           id="error-popup__photo-name"
-          class="popup__error-message popup__error-message_hidden">
+          class="popup__error-message">
         </span>
         <input
           id="popup__photo-link"
@@ -119,7 +119,7 @@
           required>
         <span
           id="error-popup__photo-link"
-          class="popup__error-message popup__error-message_hidden">
+          class="popup__error-message">
         </span>
         <button
           type="submit"
@@ -130,9 +130,9 @@
   </div>
 
   <!-- Увеличение фото -->
-  <div class="popup popup_full-img">
-    <div class="popup__container">
-      <button class="popup__close-button" type="reset"></button>
+  <div class="popup popup__full-img">
+    <div class="popup__container popup__container_full-img">
+      <button class="popup__close-button popup__close-button_full-img" type="reset"></button>
       <img class="popup__img" src="#" alt="">
       <p class="popup__description"></p>
     </div>
@@ -149,7 +149,6 @@
       </div> 
     </div> 
   </template>
-  <script src="./scripts/initialCards.js" type="module"></script>
   <script src="./scripts/index.js" type="module"></script>
   <script src="./scripts/formValidator.js" type="module"></script>
   <script src="./scripts/card.js" type="module"></script>

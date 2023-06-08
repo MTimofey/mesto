@@ -1,12 +1,3 @@
-// переменная с классами
-let classSelector = {
-  formSelector: '.popup__content',
-  inputSelector: '.popup__text',
-  submitButtonSelector: '.popup__submit-button',
-  inactiveButtonClass: 'popup__submit-button_disable',
-  inputErrorClass: 'popup__text_type_error',
-};
-
 // класс с конструктором для валидации полей
 class FormValidator {
   constructor(classSelector, formElement) {
@@ -47,7 +38,7 @@ class FormValidator {
     inputField.input.classList.remove(this.classSelector.inputErrorClass);
     inputField.error.textContent = '';
   };
-  
+
   // функция если система НЕ прошла валидацию форм
   _setValidateStatusOff = (inputField) => {
     inputField.input.classList.add(this.classSelector.inputErrorClass);
@@ -62,6 +53,15 @@ class FormValidator {
       this._setValidateStatusOff(inputField);
     };
   };
+
+  // очистка формы от ошибок
+  resetValidation = () => {
+    this._toggleButton();
+    this.inputFields.forEach((inputField) => {
+      this._setValidateStatusOn(inputField);
+    });
+  };
+
 
   // функция для работы с полями
   _setListeners = () => {
@@ -79,4 +79,5 @@ class FormValidator {
   };
 }
 
-export { FormValidator, classSelector };
+// экспорты
+export { FormValidator }

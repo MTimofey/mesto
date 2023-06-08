@@ -1,5 +1,6 @@
 // импорты
-import { popupImageFullPicture, popupCurrentImage, popupPhotoDescription, openPopup } from './index.js';
+import { popupImageFullPicture, popupCurrentImage, popupPhotoDescription } from './constant.js';
+import { openPopup } from './functions.js';
 
 // класс и конструктор новой карточки 
 class Card {
@@ -9,10 +10,9 @@ class Card {
     this._cardImageLink = this._cardAdd.link;
     this._templateSelector = templateSelector;
   };
-
+  
   // функция открытия карточки 
   _handleOpenCard = (name, link) => {
-    this._popupImageFullPicture = document.querySelector('.popup_full-img');
     popupCurrentImage.src = link;
     popupCurrentImage.alt = name;
     popupPhotoDescription.textContent = name;
@@ -37,36 +37,6 @@ class Card {
     this._buttonLikeCard.addEventListener('click', () => this._handleLikeCard(this._buttonLikeCard));
     this._buttonDeleteCard.addEventListener('click',() => this._handleDeleteCard(this._newCard));
   };
-
-  // Второй вариант для всего это - убрать параметры в методах и сделать все через this._ в функциях ниже.
-  // Не знаю, какой из них более правильный, так что я написал оба, если один правильный, а другой нет,
-  // то исправлю на правильный (само собой);
-  
-  // _setListeners = () => {
-  //   this._imageCard.addEventListener('click', () => this._handleOpenCard());
-  //   this._buttonLikeCard.addEventListener('click', () => this._handleLikeCard());
-  //   this._buttonDeleteCard.addEventListener('click',() => this._handleDeleteCard());
-  // };
-  
-  // // функция открытия карточки 
-  // _handleOpenCard = () => {
-  //   this._popupImageFullPicture = document.querySelector('.popup_full-img');
-  //   popupCurrentImage.src = this._cardImageLink;
-  //   popupCurrentImage.alt = this._cardName;
-  //   popupPhotoDescription.textContent = this._cardName;
-
-  //   openPopup(popupImageFullPicture);
-  // };
-
-  // // функция лайка
-  // _handleLikeCard = () => {
-  //   this._buttonLikeCard.classList.toggle('element__like-button_active');
-  // };
-
-  // // функция удаления
-  // _handleDeleteCard = () => {
-  //   this._newCard.remove()
-  // };
 
   // функция поиска темплейта 
   _createTemplate() {
@@ -97,4 +67,4 @@ class Card {
 }
 
 // экспорты
-export { Card }
+export { Card };
