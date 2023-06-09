@@ -68,9 +68,8 @@ buttonClosePopupEditProfile.addEventListener('click', function() {
 
 // открыть попап добавления новой карточки (кнопка "плюс")
 buttonCardAdd.addEventListener('click', function() {
+  popupCardAddValidate.disableButton();
   formForPopupCardAdd.reset();
-
-popupCardAddValidate.disableButton();
   openPopup(popupCardAdd);
 });
 
