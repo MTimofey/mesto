@@ -2,6 +2,7 @@
 function openPopup(popup) {
   popup.classList.add('popup__opened'); 
   document.addEventListener('keydown', closePopupByEsc);
+  setListenerClosePopupByOverlay(popup)
 };
 
 // функция закрытия попапа
@@ -18,15 +19,15 @@ function closePopupByEsc(evt) {
   }
 };
 
-function setListenerClosePopupByOverlay(popupName) {
-  popupName.addEventListener("click", closePopupByOverlay);
-}
-
 // функция закрытия попапа по клику вне папапа (Overlay)
 function closePopupByOverlay(evt) {
-    if (evt.currentTarget === evt.target) {
-      closePopup(evt.currentTarget);
-    }
+  if (evt.currentTarget === evt.target) {
+    closePopup(evt.currentTarget);
+  }
 };
 
-export { openPopup, closePopup, setListenerClosePopupByOverlay };
+function setListenerClosePopupByOverlay(popupName) {
+  popupName.addEventListener("click", closePopupByOverlay);
+};
+
+export { openPopup, closePopup };

@@ -27,8 +27,6 @@ const buttonClosePopupEditProfile = popupUsernameEdit.querySelector('.popup__clo
 const buttonClosePopupCardAdd = popupCardAdd.querySelector('.popup__close-button');
 const buttonClosePopupImageFull = popupImageFullPicture.querySelector('.popup__close-button');
 
-const bottonSubmitEditProfile = popupUsernameEdit.querySelector('.popup__submit-button')
-const buttonSubmitAddCard  = popupCardAdd.querySelector('.popup__submit-button');
 const formValidators = {};
 
 const classSelector = {
@@ -95,4 +93,4 @@ export { popups, popupsArray, popupUsernameEdit, popupCardAdd, elements,
   inputUserPosition, formForPopupCardAdd, inputPhotoName, inputPhotoLink,
   popupImageFullPicture, popupCurrentImage, popupPhotoDescription,
   buttonEditProfile, buttonCardAdd, buttonClosePopupEditProfile, buttonClosePopupCardAdd,
-  buttonClosePopupImageFull, bottonSubmitEditProfile, buttonSubmitAddCard, formValidators, classSelector, initialCards }
+  buttonClosePopupImageFull, formValidators, classSelector, initialCards }
