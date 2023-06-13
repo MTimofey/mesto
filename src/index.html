@@ -9,18 +9,17 @@
   <meta name="keywords" content="Жак-Ив Кусто">
   <meta name="author" content="Тимофей Морозов"> 
   <title>Статья на тему: Жак-Ив Кусто</title>
-  <link rel="stylesheet" href="./pages/index.css">
 </head>
 <body class="root">
   <header class="header">
     <a class="header__logo" href="#">
-      <img class="header__logo-image" src="./images/headerLogo.png" alt="Логотип с изображением сайта">
+      <img class="header__logo-image" src="<%=require('./images/headerLogo.png')%>" alt="Логотип с изображением сайта">
     </a>
   </header>
   <main class="content">
     <section class="profile">
       <div class="profile__cover">
-        <img class="profile__avatar" src="./images/Zhak-Iv-Kusto.png" alt="Аватар">
+        <img class="profile__avatar" src="<%=require('./images/Zhak-Iv-Kusto.png')%>" alt="Аватар">
         <div class="profile__info">
           <h1 class="profile__title">Жак-Ив Кусто</h1>
           <button type="button" class="profile__edit-button"></button>
@@ -149,8 +148,5 @@
       </div> 
     </div> 
   </template>
-  <script src="./scripts/index.js" type="module"></script>
-  <script src="./scripts/formValidator.js" type="module"></script>
-  <script src="./scripts/card.js" type="module"></script>
 </body>
 </html>

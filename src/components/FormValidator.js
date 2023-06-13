@@ -27,9 +27,9 @@ class FormValidator {
   // функция проверки кнопки работы кнопки из функции проверки на валидность
   _toggleButton = () => {
     if (this._formElement.checkValidity()) {
-      this._enableButton(this._classSelector, this._submitButton);
+      this._enableButton();
     } else {
-      this.disableButton(this._classSelector, this._submitButton);
+      this.disableButton();
     }
   };
 
@@ -69,7 +69,7 @@ class FormValidator {
     this._inputFields.forEach((inputField) => {
       inputField.input.addEventListener('input', () => {
         this._checkInputValidity(inputField);
-        this._toggleButton(this.classSelector, this._formElement);
+        this._toggleButton(this._classSelector, this._formElement);
       });
     });
   };

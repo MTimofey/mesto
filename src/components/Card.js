@@ -1,23 +1,11 @@
-// импорты
-import { popupImageFullPicture, popupCurrentImage, popupPhotoDescription } from './constant.js';
-import { openPopup } from './functions.js';
-
 // класс и конструктор новой карточки 
 class Card {
-  constructor(cardAdd, templateSelector) {
+  constructor(cardAdd, templateSelector, handleOpenCard) {
+    this._handleOpenCard = handleOpenCard;
     this._cardAdd = cardAdd;
     this._cardName = this._cardAdd.name;
     this._cardImageLink = this._cardAdd.link;
     this._templateSelector = templateSelector;
-  };
-  
-  // функция открытия карточки 
-  _handleOpenCard = (name, link) => {
-    popupCurrentImage.src = link;
-    popupCurrentImage.alt = name;
-    popupPhotoDescription.textContent = name;
-
-    openPopup(popupImageFullPicture);
   };
 
   // функция лайка
@@ -27,15 +15,16 @@ class Card {
 
   // функция удаления
   _handleDeleteCard = (newCard) => {
-    newCard.remove()
+    newCard.remove();
+    newCard = null;
   };
 
 
   // функция сбора функций и навешивание слушателя обработчика события
   _setListeners = () => {
-    this._imageCard.addEventListener('click', () => this._handleOpenCard(this._cardName, this._cardImageLink));
     this._buttonLikeCard.addEventListener('click', () => this._handleLikeCard(this._buttonLikeCard));
     this._buttonDeleteCard.addEventListener('click',() => this._handleDeleteCard(this._newCard));
+    this._imageCard.addEventListener('click', () => this._handleOpenCard(this._cardAdd));
   };
 
   // функция поиска темплейта 

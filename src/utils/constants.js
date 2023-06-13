@@ -1,33 +1,13 @@
 // константы
-const popups = document.querySelectorAll('.popup');
-const popupsArray = Array.from(popups);
-
-const popupUsernameEdit = document.querySelector('.popup_username-edit');
-const popupCardAdd = document.querySelector('.popup_card-add');
-const elements = document.querySelector('.elements');
-
-const userName = document.querySelector('.profile__title');
-const userPosition = document.querySelector('.profile__position');
 
 const formForPopupUsernameEdit = document.forms['contentProfileForm'];
 const inputUserName = formForPopupUsernameEdit.elements['userName'];
 const inputUserPosition = formForPopupUsernameEdit.elements['userPosition'];
 
 const formForPopupCardAdd = document.forms['contentNewCardForm']
-const inputPhotoName = formForPopupCardAdd.elements['photoName'];
-const inputPhotoLink = formForPopupCardAdd.elements['link'];
-
-const popupImageFullPicture = document.querySelector('.popup_full-img');
-const popupCurrentImage = popupImageFullPicture.querySelector('.popup__img');
-const popupPhotoDescription = popupImageFullPicture.querySelector('.popup__description');
-
 const buttonEditProfile = document.querySelector('.profile__edit-button');
 const buttonCardAdd = document.querySelector('.profile__add-button');
-const buttonClosePopupEditProfile = popupUsernameEdit.querySelector('.popup__close-button');
-const buttonClosePopupCardAdd = popupCardAdd.querySelector('.popup__close-button');
-const buttonClosePopupImageFull = popupImageFullPicture.querySelector('.popup__close-button');
 
-const formValidators = {};
 
 const classSelector = {
   formSelector: '.popup__content',
@@ -88,9 +68,5 @@ const initialCards = [
   },
 ]; 
 
-export { popups, popupsArray, popupUsernameEdit, popupCardAdd, elements,
-  userName, userPosition, formForPopupUsernameEdit, inputUserName,
-  inputUserPosition, formForPopupCardAdd, inputPhotoName, inputPhotoLink,
-  popupImageFullPicture, popupCurrentImage, popupPhotoDescription,
-  buttonEditProfile, buttonCardAdd, buttonClosePopupEditProfile, buttonClosePopupCardAdd,
-  buttonClosePopupImageFull, formValidators, classSelector, initialCards }
+export { formForPopupUsernameEdit, inputUserName, inputUserPosition, formForPopupCardAdd,
+  buttonEditProfile, buttonCardAdd, classSelector, initialCards }
