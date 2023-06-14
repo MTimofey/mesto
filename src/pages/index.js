@@ -60,7 +60,7 @@ const cardPopupWithFormUserNameEdit = new PopupWithForm('.popup_username-edit', 
 });
 
 // функция синхронизирования данных в профиле
-const userNameEditListener = () => {
+const openEditProfilePopup = () => {
   const userData = cardUserInfo.getUserInfo();
   
   inputUserName.value = userData.userName;
@@ -85,7 +85,7 @@ const cardPopupWithFormCardAdd = new PopupWithForm('.popup_card-add', {
 });
 
 // функция очистки полей данных в попапе добавления карточек
-const addCardListener = () => {
+const openAddCardPopup = () => {
   popupCardAddValidate.disableButton();
   formForPopupCardAdd.reset();
   cardPopupWithFormCardAdd.openPopup();
@@ -109,10 +109,10 @@ popupCardAddValidate.enableValidation();
 cardPopupWithFormUserNameEdit.setEventListeners();
 
 // навешивания слушателя на кнопку редактирования профиля (кнопка "карандаш")
-buttonEditProfile.addEventListener('click', () => userNameEditListener());
+buttonEditProfile.addEventListener('click', () => openEditProfilePopup());
 
 // навешивание слушателей на создание карточки 
 cardPopupWithFormCardAdd.setEventListeners();
 
 // навешивание слушателя на кнопку создания карточек (кнопка "плюс")
-buttonCardAdd.addEventListener('click', () => addCardListener());
+buttonCardAdd.addEventListener('click', () => openAddCardPopup());
