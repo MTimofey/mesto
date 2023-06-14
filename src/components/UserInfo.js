@@ -1,3 +1,4 @@
+// работа с полями инпута редактирования профиля
 class UserInfo {
   constructor({ selectorUserName, selectorUserPosition }) {
     this._userName = document.querySelector(selectorUserName);
@@ -10,7 +11,7 @@ class UserInfo {
       userPosition: this._userPosition.textContent,
     };
   }
-
+  
   setUserInfo({ userName, userPosition }) {
     this._userName.textContent = userName;
     this._userPosition.textContent = userPosition;

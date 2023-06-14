@@ -1,37 +1,38 @@
 // класс и конструктор новой карточки 
 class Card {
-  constructor(cardAdd, templateSelector, handleOpenCard) {
-    this._handleOpenCard = handleOpenCard;
-    this._cardAdd = cardAdd;
-    this._cardName = this._cardAdd.name;
-    this._cardImageLink = this._cardAdd.link;
+  constructor(cardData, templateSelector, handleImageClick) {
+    this._handleImageClick = handleImageClick;
+    this._cardData = cardData;
+    this._cardName = this._cardData.name;
+    this._cardImageLink = this._cardData.link;
     this._templateSelector = templateSelector;
   };
 
   // функция лайка
-  _handleLikeCard = (buttonLikeCard) => {
-    buttonLikeCard.classList.toggle('element__like-button_active');
+  _handleLikeCard = () => {
+   this._buttonLikeCard.classList.toggle('element__like-button_active');
   };
 
   // функция удаления
-  _handleDeleteCard = (newCard) => {
-    newCard.remove();
-    newCard = null;
+  _handleDeleteCard = () => {
+    this._newCard.remove();
+    this._newCard = null;
   };
 
 
   // функция сбора функций и навешивание слушателя обработчика события
   _setListeners = () => {
-    this._buttonLikeCard.addEventListener('click', () => this._handleLikeCard(this._buttonLikeCard));
-    this._buttonDeleteCard.addEventListener('click',() => this._handleDeleteCard(this._newCard));
-    this._imageCard.addEventListener('click', () => this._handleOpenCard(this._cardAdd));
+    this._buttonLikeCard.addEventListener('click', () => this._handleLikeCard());
+    this._buttonDeleteCard.addEventListener('click',() => this._handleDeleteCard());
+    this._imageCard.addEventListener('click', () => this._handleImageClick(this._cardData));
   };
 
   // функция поиска темплейта 
   _createTemplate() {
-    this._cardTemp = document.querySelector(this._templateSelector).content;
-    this._cardElement = this._cardTemp.querySelector('.element').cloneNode(true);
-    return this._cardElement;
+    const cardTemp = document.querySelector(this._templateSelector).content;
+    const cardElement = cardTemp.querySelector('.element').cloneNode(true);
+    
+    return cardElement;
   };
 
   // функция создания карточки

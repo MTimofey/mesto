@@ -1,6 +1,7 @@
 // импорт
 import { Popup } from './Popup.js'
 
+// работа с формами попапов
 class PopupWithForm extends Popup {
   constructor(popupSelector,{ callbackSubmitForm } ) {
     super(popupSelector);

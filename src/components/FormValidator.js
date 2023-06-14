@@ -14,14 +14,14 @@ class FormValidator {
 
   // функция разблокировки кнопки отправки формы 
   _enableButton() {
-  this._submitButton.removeAttribute('disabled', '');
-  this._submitButton.classList.remove(this._classSelector.inactiveButtonClass);
+    this._submitButton.removeAttribute('disabled');
+    this._submitButton.classList.remove(this._classSelector.inactiveButtonClass);
   };
 
-  // функция блокировки кнопки отправки формы 
+  // функция блокировки кнопки отправки формы
   disableButton() {
-  this._submitButton.setAttribute('disabled', '');
-  this._submitButton.classList.add(this._classSelector.inactiveButtonClass);
+    this._submitButton.disabled = true;
+    this._submitButton.classList.add(this._classSelector.inactiveButtonClass);
   };
 
   // функция проверки кнопки работы кнопки из функции проверки на валидность
@@ -54,29 +54,19 @@ class FormValidator {
     };
   };
 
-  // очистка формы от ошибок
-  resetValidation = () => {
-    this._toggleButton();
-    this._inputFields.forEach((inputField) => {
-      this._setValidateStatusOn(inputField);
-    });
-  };
-
-
   // функция для работы с полями
   _setListeners = () => {
     this._toggleButton();
     this._inputFields.forEach((inputField) => {
       inputField.input.addEventListener('input', () => {
         this._checkInputValidity(inputField);
-        this._toggleButton(this._classSelector, this._formElement);
+        this._toggleButton();
       });
     });
   };
 
   enableValidation = () => {
     this._setListeners();
-    this._toggleButton();
   };
 }
 

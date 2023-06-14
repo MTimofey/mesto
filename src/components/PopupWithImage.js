@@ -1,7 +1,7 @@
 // импорты
 import { Popup } from './Popup.js';
 
-// работа с картинкой
+// работа с данными картинки
 class PopupWithImage extends Popup {
   constructor(popupSelector) {
     super(popupSelector);

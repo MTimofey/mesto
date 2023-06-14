@@ -6,56 +6,61 @@ import { PopupWithImage } from "../components/PopupWithImage.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
 import { UserInfo } from "../components/UserInfo.js";
 import { formForPopupUsernameEdit, inputUserName, inputUserPosition, formForPopupCardAdd,
-  buttonEditProfile, buttonCardAdd, classSelector, initialCards } from "../utils/constants.js";
+  buttonEditProfile, buttonCardAdd, validationConfig, initialCards } from "../utils/constants.js";
 
 import './index.css';
 
-const popupUsernameEditValidate = new FormValidator(classSelector, formForPopupUsernameEdit);
-popupUsernameEditValidate.enableValidation();
-const popupCardAddValidate = new FormValidator(classSelector, formForPopupCardAdd);
-popupCardAddValidate.enableValidation();
+// функции, которые вополняются по ходу проекта
 
-const handleOpenCard = (cardAdd) => fullPopupWithImage.openPopup(cardAdd);
+// функция валидирования карточки юзера
+const popupUsernameEditValidate = new FormValidator(validationConfig, formForPopupUsernameEdit);
 
+// функция валидирования карточки добаления юзера
+const popupCardAddValidate = new FormValidator(validationConfig, formForPopupCardAdd);
+
+// функция заполенния картички с картинкой данными (зум картинки)
 const fullPopupWithImage = new PopupWithImage('.popup_full-img');
-fullPopupWithImage.setEventListeners();
 
+// функция открытия карточки с картинкой (зум картинки)
+const handleOpenCard = (cardData) => fullPopupWithImage.openPopup(cardData);
+
+// фукнция создание новой карточки с фотографие/картинкой
 const createCard = (...rest) => new Card(...rest).getCard();
+
+// функция добавление данных для новой карточки с картнкой
 const renderCard = (data) => {
   const newOrdCard = createCard(data, "#template-elements", handleOpenCard);
-
+  
   cardsSection.addItem(newOrdCard);
 };
 
-// инициализация объекта с готовыми карточками
+// функция инициализации объекта с готовыми карточками
 const cardsSection = new Section(
   {
     items: initialCards,
     renderer: renderCard,
   },
-  '.elements'
+  '.elements',
 );
 
-cardsSection.renderItems();
-
-// работа с редактированием профиля
+// функция работы с редактированием полей данных профиля
 const cardUserInfo = new UserInfo({
   selectorUserName: '.profile__title',
   selectorUserPosition: '.profile__position',
 });
 
+// фукнция работы (наполнение данных и закрытие) профиля
 const cardPopupWithFormUserNameEdit = new PopupWithForm('.popup_username-edit', {
   callbackSubmitForm: (userInfo) => {
     cardUserInfo.setUserInfo({ userName: userInfo['userName'], userPosition: userInfo['userPosition'] });
-
-    popupUsernameEditValidate.disableButton()
+    
+    
     cardPopupWithFormUserNameEdit.closePopup();
   },
 });
 
-cardPopupWithFormUserNameEdit.setEventListeners();
- 
-buttonEditProfile.addEventListener('click', () => {
+// функция синхронизирования данных в профиле
+const userNameEditListener = () => {
   const userData = cardUserInfo.getUserInfo();
   
   inputUserName.value = userData.userName;
@@ -63,44 +68,51 @@ buttonEditProfile.addEventListener('click', () => {
   
   popupUsernameEditValidate.disableButton();
   cardPopupWithFormUserNameEdit.openPopup();
-});
+};
 
-// работа с созданием новой карточки
-// const handleSubmitCardAdd = (cardData) => {
-//   const cardDataForm = {
-//     name: cardData.name,
-//     link: cardData.link,
-//   };
-  
-//   const cardOrd = new Card(cardDataForm, '#template-elements', handleOpenCard);
-//   cardsSection.addItem(cardOrd.getCard());
-  
-//   popupUsernameEditValidate.disableButton();
-//   cardPopupWithFormCardAdd.closePopup();
-// }
-
-// const cardPopupWithFormCardAdd = new PopupWithForm('.popup_card-add', (cardData) => {
-//   handleSubmitCardAdd(cardData);
-// });
-
+// функция работы (наполнение данных, ссылки и закрытие) с попапом доабвления карточек 
 const cardPopupWithFormCardAdd = new PopupWithForm('.popup_card-add', {
   callbackSubmitForm: (cardData) => {
     const cardDataForm = {
-      name: cardData.name,
-      link: cardData.link,
+      name: cardData['photoName'],
+      link: cardData['link'],
     };
-    const cardOrd = new Card(cardDataForm, '#template-elements', handleOpenCard);
-    cardsSection.addItem(cardOrd.getCard());
-
-    popupUsernameEditValidate.disableButton();
+    const cardOrd = createCard(cardDataForm, '#template-elements', handleOpenCard);
+    cardsSection.addItem(cardOrd);
+    
     cardPopupWithFormCardAdd.closePopup();
-  }
-})
+  },
+});
 
-cardPopupWithFormCardAdd.setEventListeners();
-
-buttonCardAdd.addEventListener('click', () => {
+// функция очистки полей данных в попапе добавления карточек
+const addCardListener = () => {
   popupCardAddValidate.disableButton();
   formForPopupCardAdd.reset();
   cardPopupWithFormCardAdd.openPopup();
-});
+};
+
+// реализация добаления функций 
+
+// создания карточек из объекта
+cardsSection.renderItems();
+
+// навешивание слушателей на карточку с картинкой
+fullPopupWithImage.setEventListeners();
+
+// валидация форм редактирования профиля
+popupUsernameEditValidate.enableValidation();
+
+// валидация форм создания карточки
+popupCardAddValidate.enableValidation();
+
+// навешивание слушателей на редактирование формы
+cardPopupWithFormUserNameEdit.setEventListeners();
+
+// навешивания слушателя на кнопку редактирования профиля (кнопка "карандаш")
+buttonEditProfile.addEventListener('click', () => userNameEditListener());
+
+// навешивание слушателей на создание карточки 
+cardPopupWithFormCardAdd.setEventListeners();
+
+// навешивание слушателя на кнопку создания карточек (кнопка "плюс")
+buttonCardAdd.addEventListener('click', () => addCardListener());

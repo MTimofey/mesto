@@ -9,7 +9,7 @@ const buttonEditProfile = document.querySelector('.profile__edit-button');
 const buttonCardAdd = document.querySelector('.profile__add-button');
 
 
-const classSelector = {
+const validationConfig = {
   formSelector: '.popup__content',
   inputSelector: '.popup__text',
   submitButtonSelector: '.popup__submit-button',
@@ -69,4 +69,4 @@ const initialCards = [
 ]; 
 
 export { formForPopupUsernameEdit, inputUserName, inputUserPosition, formForPopupCardAdd,
-  buttonEditProfile, buttonCardAdd, classSelector, initialCards }
+  buttonEditProfile, buttonCardAdd, validationConfig, initialCards }

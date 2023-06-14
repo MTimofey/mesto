@@ -1,3 +1,4 @@
+// создание секции с карточками 
 class Section {
   constructor({ items, renderer }, containerSelector) {
     this.items = items;
