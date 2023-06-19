@@ -70,5 +70,5 @@ class FormValidator {
   };
 }
 
-// экспорты
+// экспорт
 export { FormValidator }

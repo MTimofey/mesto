@@ -1,8 +1,9 @@
 // работа с полями инпута редактирования профиля
 class UserInfo {
-  constructor({ selectorUserName, selectorUserPosition }) {
+  constructor({ selectorUserName, selectorUserPosition, selectorAvatar }) {
     this._userName = document.querySelector(selectorUserName);
     this._userPosition = document.querySelector(selectorUserPosition);
+    this._avatarLink = document.querySelector(selectorAvatar)
   }
 
   getUserInfo() {
@@ -12,10 +13,15 @@ class UserInfo {
     };
   }
   
-  setUserInfo({ userName, userPosition }) {
-    this._userName.textContent = userName;
-    this._userPosition.textContent = userPosition;
-    }  
+  setUserInfo(userData) {
+    this._userName.textContent = userData.name;
+    this._userPosition.textContent = userData.about;
+  }
+
+  setAvatar(avatarLink) {
+    this._avatarLink.src = avatarLink;
+  }
 }
 
+// экспорт
 export { UserInfo };

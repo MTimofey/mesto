@@ -1,20 +1,24 @@
 // создание секции с карточками 
 class Section {
-  constructor({ items, renderer }, containerSelector) {
-    this.items = items;
-    this.renderer = renderer;
-    this.container = document.querySelector(containerSelector);
+  constructor({ renderer }, validationConfig) {
+    this._renderer = renderer;
+    this._container = document.querySelector(validationConfig);
   }
 
-  renderItems() {
-    this.items.forEach((itemData) => {
-      this.renderer(itemData);
-    });
+  addItem(item) {
+    this._container.prepend(item);
   }
 
-  addItem(htmlElement) {
-    this.container.prepend(htmlElement);
+  removeCard(item) {
+    this._container.remove(item);
   }
-}
 
+  renderItems(items) {
+    for (let i = items.length - 1; i > -1; i--) {
+      this._renderer(items[i]);
+    }
+  }
+};
+
+// экспорты
 export { Section };

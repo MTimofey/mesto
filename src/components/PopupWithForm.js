@@ -3,13 +3,12 @@ import { Popup } from './Popup.js'
 
 // работа с формами попапов
 class PopupWithForm extends Popup {
-  constructor(popupSelector,{ callbackSubmitForm } ) {
+  constructor( popupSelector, callbackSubmitForm ) {
     super(popupSelector);
     this._callbackSubmitForm = callbackSubmitForm;
     this._formContent = this._popup.querySelector('.popup__content');
     this._inputFields = Array.from(this._formContent.querySelectorAll('.popup__text'));
-    this._handleSubmit = this._handleSubmit.bind(this);
-    this.setEventListeners = this.setEventListeners.bind(this);
+    this._buttonForSaving = this._popup.querySelector('.popup__submit-button');
   }
 
   // собирает данные всех полей формы.
@@ -21,19 +20,25 @@ class PopupWithForm extends Popup {
     return cardData;
   }
 
-  _handleSubmit(evt) {
-    evt.preventDefault();
-    this._callbackSubmitForm(this._getInputValues());
-  }
-
   setEventListeners() {
     super.setEventListeners();
-    this._formContent.addEventListener('submit', this._handleSubmit);
+    this._formContent.addEventListener('submit', (evt) =>{
+      evt.preventDefault();
+      this._callbackSubmitForm(this._getInputValues());
+    });
   }
 
   closePopup() {
     super.closePopup();
     this._formContent.reset();
+  }
+
+  loadingConfirm(isLoading, content) {
+    if (isLoading) {
+      this._buttonForSaving.textContent = "Сохранение...";
+    } else {
+      this._buttonForSaving.textContent = content;
+    }
   }
 }
 

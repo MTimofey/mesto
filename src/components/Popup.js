@@ -2,7 +2,6 @@
 class Popup {
   constructor(popupSelector) {
     this._popup = document.querySelector(popupSelector);
-    this._closeButton = this._popup.querySelector('.popup__close-button');
     this.openPopup = this.openPopup.bind(this);
     this.closePopup = this.closePopup.bind(this);
     this._closePopupByEsc = this._closePopupByEsc.bind(this);
@@ -36,9 +35,16 @@ class Popup {
   }
 
   setEventListeners() {
-    this._popup.addEventListener('click', this._closePopupByOverlay);
-    this._closeButton.addEventListener('click', () => this.closePopup());
+    this._popup.addEventListener('click', (evt) => {
+      if (evt.target.classList.contains('popup__opened')) {
+        this.closePopup();
+      }
+      if (evt.target.classList.contains('popup__close-button')) {
+        this.closePopup();
+      }
+    });
   }
 }
 
+// экспорт
 export { Popup }

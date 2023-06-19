@@ -19,7 +19,10 @@
   <main class="content">
     <section class="profile">
       <div class="profile__cover">
-        <img class="profile__avatar" src="<%=require('./images/Zhak-Iv-Kusto.png')%>" alt="Аватар">
+        <div class="profile__avatar-area">
+          <img class="profile__avatar" src="#" alt="Аватар профиля">
+          <button type="button" class="profile__edit-avatar-button"></button>
+        </div>
         <div class="profile__info">
           <h1 class="profile__title">Жак-Ив Кусто</h1>
           <button type="button" class="profile__edit-button"></button>
@@ -136,17 +139,60 @@
       <p class="popup__description"></p>
     </div>
   </div>
-  
+
+  <!-- Удаление фотографии -->
+  <div class="popup popup_delete-card">
+    <div class="popup__body">
+      <button type="button" class="popup__close-button"></button>
+      <h3 class="popup__title">Вы уверены?</h3>
+      <form
+        name="contentNewCardForm"
+        class="popup__content popup__content_delete-card"
+        novalidate>
+        <button type="submit" class="popup__submit-button">Да</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Редктирование аватарки -->
+  <div class="popup popup_edit-avatar">
+    <div class="popup__body">
+      <button type="button" class="popup__close-button"></button>
+      <h3 class="popup__title">Обновить аватар</h3>
+      <form
+        class="popup__content popup__content_edit-avatar"
+        name="userAvatar"
+        novalidate>
+        <input
+          id="popup__avatar-picture"
+          type="url"
+          name="avatarPicture"
+          class="popup__text popup__text_avatar-picture"
+          autocomplete="off"
+          placeholder="Введите ссылку на аватар"
+          required>
+        <span
+          id="error-popup__avatar-picture"
+          class="popup__error-message">
+        </span>
+        <button type="submit" class="popup__submit-button">Сохранить</button>
+      </form>
+    </div>
+  </div>
+
   <!-- Новая картинка -->
   <template id="template-elements">
     <div class="element">
       <button class="element__delete-button" type="reset"></button>
       <img class="element__image" src="#" alt="Фото">
-      <div class="element__text"> 
-        <p class="element__title">Название картинки</p> 
-        <button class="element__like-button" type="submit"></button> 
-      </div> 
-    </div> 
+      <div class="element__context">
+        <p class="element__title">Название картинки</p>
+        <div class="element__like-area">
+          <button class="element__like-button" type="submit"></button>
+          <p class="element__like-number">0</p>
+        </div>
+      </div>
+    </div>
   </template>
 </body>
 </html>
