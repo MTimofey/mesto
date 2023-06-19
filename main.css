@@ -9,7 +9,7 @@
 .element__like-button_active{background-image:url(images/blacklike.d6753ea74bdb03dad8ea.png)}
 .element__like-number{color:#000;font-size:13px;font-style:normal;font-weight:400;line-height:16px;margin:0;text-align:center};
 .element__text{align-items:baseline;background-color:#fff;display:flex;justify-content:space-between;margin:25px 20px 31px 21px}
-.element__title{color:#000;font-size:24px;font-weight:900;line-height:29px;margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width:180px}
+.element__title{color:#000;font-size:24px;font-weight:900;line-height:29px;margin:0;overflow:hidden;padding:0;text-overflow:ellipsis;white-space:nowrap}
 .elements{-moz-column-gap:17px;column-gap:17px;display:grid;grid-template-columns:repeat(auto-fill,minmax(282px,1fr));margin:0 0 67px;max-width:100%;row-gap:20px}
 .footer{margin:0 auto 60px;max-width:880px;min-width:282px}@media screen and (max-width:1279px){.footer{margin:0 auto 36px;width:calc(100% - 38px)}}
 .footer__copyright{color:#545454;font-size:18px;font-weight:400;line-height:22px;margin:0}@media screen and (max-width:1279px){.footer__copyright{font-size:14px;line-height:17px}}
@@ -39,7 +39,7 @@
 .profile__avatar-area{display:flex;margin:0;padding:0}
 .profile__cover{display:flex}@media screen and (max-width:1279px){.profile__cover{flex-direction:column}}
 .profile__edit-button{align-self:flex-end;background-color:#000;background-image:url(images/pencil.587009807413c61cdaa7.png);background-position:50%;background-repeat:no-repeat;border:1px solid #fff;cursor:pointer;height:22px;margin-bottom:10px;opacity:1;outline:none;padding:0;transition:opacity .5s ease-in-out 0s;width:22px}.profile__edit-button:hover{opacity:.6}@media screen and (max-width:1279px){.profile__edit-button{height:16px;margin-bottom:5px;width:16px}}
-.profile__edit-avatar-button{background:none;border:none;border-radius:50%;height:120px;margin:0;padding:0;position:absolute;width:120px}.profile__edit-avatar-button:hover{background-color:rgba(0,0,0,.9);background-image:url(images/avatarEditPencile.7ae9124adf31a3cd093e.png);background-position:50%;background-repeat:no-repeat;cursor:pointer;opacity:.8}
+.profile__edit-avatar-button{background:none;border:none;border-radius:50%;height:120px;margin:0;opacity:0;padding:0;position:absolute;transition:opacity 1s ease-in-out 0s;width:120px}.profile__edit-avatar-button:hover{background-color:rgba(0,0,0,.9);background-image:url(images/avatarEditPencile.7ae9124adf31a3cd093e.png);background-position:50%;background-repeat:no-repeat;cursor:pointer;opacity:.8}
 .profile__info{display:grid;gap:16px 17px;grid-template-areas:"name edit" "position position";margin-left:30px;max-width:336px}@media screen and (max-width:1279px){.profile__info{gap:0;grid-template-columns:200px 18px;justify-content:center;margin:0 0 36px}}
 .profile__position{font-size:18px;font-style:normal;font-weight:400;grid-area:position;line-height:22px;margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}@media screen and (max-width:1279px){.profile__position{font-size:14px;line-height:17px;text-align:center}}
 .profile__title{align-self:flex-end;font-size:42px;font-style:normal;font-weight:500;grid-area:name;line-height:48px;margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}@media screen and (max-width:1279px){.profile__title{font-size:27px;line-height:33px;text-align:center}}
