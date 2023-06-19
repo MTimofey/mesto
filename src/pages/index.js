@@ -127,7 +127,6 @@ const popupAvatar = new PopupWithForm('.popup_edit-avatar', (avatarLink) => {
 
 const openEditAvatar = () => {
   popupAvatarImageValidate.disableButton();
-  formForPopupAvatarImage.reset();
   popupAvatar.openPopup();
 }
 
@@ -151,7 +150,6 @@ const cardPopupConfirmDelete = new PopupConfirmDelete('.popup_delete-card', (thi
 // функция очистки полей данных в попапе добавления карточек
 const openAddCardPopup = () => {
   popupCardAddValidate.disableButton();
-  formForPopupCardAdd.reset();
   cardPopupWithFormCardAdd.openPopup();
 };
 
